@@ -1,6 +1,11 @@
 import express from 'express';
+import bodyParser from 'body-parser';
+
 const __dirname = import.meta.dirname;
 const app = express();
+const urlEncoderParser = bodyParser.urlencoded({ extended: false });
+
+
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
@@ -50,6 +55,15 @@ app.get('/getAdmin', (req, res) => {
         lastname: req.query.lastName,
         adminid: req.query.adminId,
         department: req.query.department,
+    }
+})
+
+app.post('/postAdmin', urlEncoderParser, (req, res) => {
+    var response = {
+        firstname: req.body.firstName,
+        lastname: req.body.lastName,
+        adminid: req.body.adminId,
+        department: req.body.department,
     }
 
     console.log("Response is ", response),
