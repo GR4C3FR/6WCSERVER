@@ -71,7 +71,7 @@
     </style>
 </head>
 <body>
-    <form action="/postAdmin" method="POST">
+    <form action="/postAdmin" enctype="multipart/form-data" method="POST">
         <h2 class="form-title">Admin Information</h2>
         <div>
             <label for="firstName">First Name</label>
@@ -88,7 +88,15 @@
         <div>
             <label for="department">Department</label>
             <input type="text" id="department" name="department" required>
-        </div>       
+        </div>
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="file">Select File</label>
+            <input type="file" id="file" name="file" required>
+        </div>    
         <input type="submit" value="Submit">  
     </form>
 </body>
